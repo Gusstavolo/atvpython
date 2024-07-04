@@ -21,12 +21,13 @@ _Menu = """
 total = 0  # Inicializando o acumulador #[EXIGÊNCIA DE CÓDIGO 2 de 8]
 #endregion
 
+print( _Menu)
 #region loop para repetição dos pedidos
 while True:
-    print(f""+ _Menu)
+    
     
     #region solicitação e verificação do sabor
-    sabor = input("Digite o sabor da marmita (BA/FF): ").upper()
+    sabor = input("\nDigite o sabor da marmita (BA/FF): ").upper()
     if sabor not in ['BA', 'FF']:
         print(f"Sabor inválido. Tente novamente.")
         continue
@@ -38,9 +39,10 @@ while True:
         print("Tamanho inválido. Tente novamente.")
         continue
     #endregion
-    
+
     #region Cálculo do preço baseado em sabor e tamanho #[EXIGÊNCIA DE CÓDIGO 4 de 8]
     if sabor == 'BA':
+        saborNome = "Bife Acebolado"
         if tamanho == 'P':
             preco = 16
         elif tamanho == 'M':
@@ -48,6 +50,7 @@ while True:
         else:  # tamanho == 'G'
             preco = 22
     elif sabor == 'FF':
+        saborNome = "Filé de Frango"
         if tamanho == 'P':
             preco = 15
         elif tamanho == 'M':
@@ -55,18 +58,25 @@ while True:
         else:  # tamanho == 'G'
             preco = 21
     #endregion
-    
+
+    #region Informa pedido
+    mensagemPedido = "Você pediu uma marmita de {saborNome} no tamanho {tamanho}: R${preco:.2f}".format(
+        saborNome=saborNome, tamanho=tamanho, preco=preco
+    )
+    print(mensagemPedido)
+    #endregion
+
     #region Acumulando o valor do pedido
     total += preco #[EXIGÊNCIA DE CÓDIGO 5 de 8]
     #endregion
     
     #region Pergunta se o cliente deseja mais alguma coisa #[EXIGÊNCIA DE CÓDIGO 6 de 8]
-    mais_alguma_coisa = input("Deseja pedir mais alguma coisa? (S/N): ").upper()
+    mais_alguma_coisa = input("\nDeseja pedir mais alguma coisa? (S/N): ").upper()
     if mais_alguma_coisa == 'N':
         break
     #endregion
 #endregion
 
 #region Exibindo o total do pedido
-print(f"O total do seu pedido é: R$ {total:.2f}") 
+print(f"\nO total do seu pedido é: R$ {total:.2f}") 
 #endregion
