@@ -85,9 +85,9 @@ frete_valor = frete()
 
 total = (modelo * num * desconto) + frete_valor
 
-totalCamisaDesconto = (int(num * desconto))
+totalCamisaDesconto = int(num * desconto)
 #endregion
 
 #region Exibindo o valor total
-print(f"Total: R$ {total:.2f} (Modelo: {modelo:.2f} * Quantidade({'Sem Desconto' if num == 1 else 'Com Desconto'}): {totalCamisaDesconto:.2f}) + {frete_valor:.2f}")  #[EXIGÊNCIA DE CÓDIGO 6 de 7]
+print(f"Total: R$ {total:.2f} (Modelo: {modelo:.2f} * Quantidade({'Sem Desconto' if desconto == 1 else 'Com Desconto'}): {totalCamisaDesconto:d}) + {frete_valor:.2f}")  #[EXIGÊNCIA DE CÓDIGO 6 de 7]
 #endregion
